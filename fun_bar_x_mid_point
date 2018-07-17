@@ -1,0 +1,22 @@
+def fun_bar_x_mid_point(parm_dct_x_pos):
+    lst_dataset_pos = []
+    lst_total = []
+    rtn_lst_x_mid = []
+    int_num_datasets = 0
+    int_num_datasets  = len(parm_dct_x_pos)
+    int_max_posts = 1
+    for int_num_data in range(int_num_datasets):
+        lst_dataset_pos = parm_dct_x_pos[int_num_data]
+        int_num_post = len(lst_dataset_pos)        
+        if int_num_post >= 1:
+            if int_num_post > int_max_posts:
+                int_max_posts = int_num_post
+            # Just copy the first dataset    
+            if  int_num_data == 0:
+               lst_total = [ element for element in lst_dataset_pos]
+            else:   
+                for int_x_pos in range(int_num_post):
+                  lst_total[int_x_pos] += lst_dataset_pos[int_x_pos]
+                
+    rtn_lst_x_mid = [ round((element / int_num_datasets),2) for element in lst_total]       
+    return(rtn_lst_x_mid)
